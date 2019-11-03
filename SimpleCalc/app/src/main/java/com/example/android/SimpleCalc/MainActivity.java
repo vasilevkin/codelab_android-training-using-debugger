@@ -131,6 +131,7 @@ public class MainActivity extends Activity {
      */
     private static Double getOperand(EditText operandEditText) {
         String operandText = getOperandText(operandEditText);
+
         return Double.valueOf(operandText);
     }
 
@@ -138,6 +139,10 @@ public class MainActivity extends Activity {
      * @return the operand text which was entered in an EditText.
      */
     private static String getOperandText(EditText operandEditText) {
-        return operandEditText.getText().toString();
+        if (operandEditText.getText().toString().isEmpty()) {
+            return "0";
+        } else {
+            return operandEditText.getText().toString();
+        }
     }
 }
